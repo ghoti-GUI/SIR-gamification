@@ -1,0 +1,85 @@
+<div class="flex flex-col w-full min-h-screen bg-grey" *ngIf="!loading">
+    <app-header [section]="section"></app-header>
+    <div class="ml-8 my-3">
+        <p>{{ session.name }}</p>
+        <form
+            [formGroup]="progressionForm"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col justify-center my-3 mr-3 h-full border border-borderTable rounded-lg bg-bgCreateSession">
+            <div class="flex flex-row justify-center mt-5 mx-3">
+                <label
+                    for="name"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 h-full rounded-l-lg">
+                    Nom de l'élève
+                </label>
+                <div class="flex w-3/4">
+                    <input
+                        class="h-full w-full rounded-r-lg pl-3"
+                        type="text"
+                        id="name"
+                        placeholder="Entrer le nom de l'élève"
+                        formControlName="name"
+                        matInput
+                        [matAutocomplete]="auto" />
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option
+                            *ngFor="let student of studentListAutocompletion | async"
+                            [value]="student.studentName">
+                            {{ student.studentName }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+            </div>
+            <div
+                *ngIf="progressionForm.controls['name'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le nom est obligatoire.
+            </div>
+            <div
+                *ngIf="progressionForm.controls['name'].errors?.['nameError']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                {{ progressionForm.controls["name"].errors?.["nameError"] }}
+            </div>
+            <div *ngIf="!progressionForm.controls['name'].errors" class="flex mt-3 mx-3 pl-6 text-sm">
+                Niveau atteint par l'élève:
+                <p class="font-bold ml-1">Niveau {{ this.progressionStudentChosen.level }}</p>
+            </div>
+
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label
+                    for="progression"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Avancement
+                </label>
+                <select id="progression" class="flex px-2 w-3/4 rounded-r-lg" formControlName="progression" required>
+                    <option [ngValue]="null" disabled>Choisissez un niveau</option>
+                    <option *ngFor="let level of session.indexGrades | keyvalue" [ngValue]="level.key">
+                        Niveau {{ level.key }} : {{ (parseInt(level.key) / (session.indexGrades.size - 1)) * 100 }}%
+                    </option>
+                </select>
+            </div>
+            <div
+                *ngIf="progressionForm.controls['progression'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                L'avancement est obligatoire.
+            </div>
+            <div class="flex mt-3 mx-3 pl-6 text-red-500 text-sm" *ngIf="checkProgression()">
+                Attention ! L'élève va aller à un niveau précédent !
+            </div>
+
+            <div class="flex">
+                <button
+                    (click)="gotoProgression()"
+                    class="flex justify-center items-center w-fit bg-redButton hover:bg-red-800 rounded-lg py-2 ml-3 mr-3 mb-auto mt-5">
+                    <p class="flex text-white mx-3">Cancel</p>
+                </button>
+                <button
+                    type="submit"
+                    [disabled]="!progressionForm.valid"
+                    class="flex justify-center items-center w-fit bg-blueButton disabled:bg-blue-400 hover:bg-blue-800 rounded-lg py-2 ml-auto mr-3 mb-3 mt-5">
+                    <p class="flex text-white mx-3">Modifier</p>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

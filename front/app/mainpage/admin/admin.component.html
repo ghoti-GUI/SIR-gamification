@@ -1,0 +1,92 @@
+<div class="flex flex-col w-full min-h-screen bg-grey">
+    <app-header [section]="section"></app-header>
+    <div class="flex flex-col mt-5 m-3">
+        <div class="flex flex-row items-center justify-center">
+            <p class="text-black ml-3">Liste des Encadrants</p>
+            <div class="flex items-center justify-center ml-auto h-10">
+                <input
+                    class="w-full h-full rounded-lg border border-zinc-600 border-opacity-80 pl-5"
+                    type="text"
+                    [(ngModel)]="teacherNameSearch"
+                    (ngModelChange)="searchTeacher()"
+                    placeholder="Trouver un encadrant" />
+            </div>
+            <button
+                routerLink="/admin/addTeacher"
+                routerLinkActive="active"
+                class="w-fit ml-2 justify-center bg-blueButton rounded-lg text-white">
+                <p class="cursor-pointer text-base my-2 mx-3 text-white font-inter">Ajouter un encadrant</p>
+            </button>
+        </div>
+        <table
+            class="mt-5 m-3 bg-bgTable text-center border-y border-x border-separate border-spacing-0 rounded-t-lg rounded-b-lg overflow-hidden">
+            <thead class="justify-center items-center border-t rounded-t-lg bg-bgHeaderTable">
+                <tr>
+                    <th class="border-r border-borderTable">Encadrants</th>
+                    <th class="border-r border-borderTable">Tps</th>
+                    <th class="">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="[&>*:nth-child(even)]:bg-bgTableDark">
+                <tr *ngFor="let teacher of filteredTeachers; let index = index">
+                    <td class="border-r border-borderTable">{{ teacher.name + " " + teacher.surname }}</td>
+                    <td class="text-center border-r border-borderTable">
+                        {{ getTpsString(teacher.tps) }}
+                    </td>
+                    <td class="flex justify-center items-center">
+                        <button
+                            [routerLink]="['modifyAccess']"
+                            [state]="teacher"
+                            routerLinkActive="active"
+                            class="flex mr-1 px-1 bg-blueButton rounded py-1">
+                            <svg
+                                fill="#FFFFFF"
+                                width="24px"
+                                height="24px"
+                                viewBox="0 0 0.72 0.72"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0.63 0.36a0.03 0.03 0 0 0 -0.03 0.03v0.18a0.03 0.03 0 0 1 -0.03 0.03H0.15a0.03 0.03 0 0 1 -0.03 -0.03V0.15a0.03 0.03 0 0 1 0.03 -0.03h0.18a0.03 0.03 0 0 0 0 -0.06H0.15a0.09 0.09 0 0 0 -0.09 0.09v0.42a0.09 0.09 0 0 0 0.09 0.09h0.42a0.09 0.09 0 0 0 0.09 -0.09v-0.18a0.03 0.03 0 0 0 -0.03 -0.03Zm-0.45 0.023V0.51a0.03 0.03 0 0 0 0.03 0.03h0.127a0.03 0.03 0 0 0 0.021 -0.009l0.208 -0.208L0.651 0.24a0.03 0.03 0 0 0 0 -0.043l-0.127 -0.129a0.03 0.03 0 0 0 -0.043 0l-0.085 0.085 -0.208 0.208a0.03 0.03 0 0 0 -0.009 0.021Zm0.323 -0.251 0.085 0.085 -0.043 0.043 -0.085 -0.085ZM0.24 0.395l0.178 -0.178 0.085 0.085L0.325 0.48H0.24Z" />
+                            </svg>
+                        </button>
+                        <button (click)="deleteTeacher(teacher)" class="flex ml-1 px-1 bg-redButton rounded py-1">
+                            <svg
+                                fill="#FFFFFF"
+                                width="24px"
+                                height="24px"
+                                viewBox="0 0 1.08 1.08"
+                                version="1.1"
+                                preserveAspectRatio="xMidYMid meet"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    class="clr-i-outline clr-i-outline-path-1"
+                                    d="M0.814 1.02H0.266A0.088 0.088 0 0 1 0.18 0.93V0.337h0.06V0.93a0.028 0.028 0 0 0 0.026 0.03h0.548a0.028 0.028 0 0 0 0.026 -0.03V0.337h0.06V0.93a0.088 0.088 0 0 1 -0.086 0.09Z" />
+                                <path
+                                    class="clr-i-outline clr-i-outline-path-2"
+                                    d="M0.923 0.27H0.15a0.03 0.03 0 0 1 0 -0.06h0.773a0.03 0.03 0 0 1 0 0.06Z" />
+                                <path
+                                    class="clr-i-outline clr-i-outline-path-3"
+                                    x="21"
+                                    y="13"
+                                    width="2"
+                                    height="15"
+                                    d="M0.63 0.39H0.69V0.84H0.63V0.39z" />
+                                <path
+                                    class="clr-i-outline clr-i-outline-path-4"
+                                    x="13"
+                                    y="13"
+                                    width="2"
+                                    height="15"
+                                    d="M0.39 0.39H0.45V0.84H0.39V0.39z" />
+                                <path
+                                    class="clr-i-outline clr-i-outline-path-5"
+                                    d="M0.69 0.176h-0.057V0.12h-0.186v0.056H0.39V0.12a0.06 0.06 0 0 1 0.057 -0.06h0.186A0.06 0.06 0 0 1 0.69 0.12Z" />
+                                <path x="0" y="0" width="36" height="36" fill-opacity="0" d="M0 0H1.08V1.08H0V0z" />
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="flex flex-col w-full min-h-screen bg-grey">
+    <app-header [section]="section"></app-header>
+    <div class="ml-8 my-3 h-full">
+        <p>Ajouter un encadrant</p>
+        <form
+            [formGroup]="addTeacherForm"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col justify-center my-3 mr-3 h-full border border-borderTable rounded-lg bg-bgCreateSession">
+            <div class="flex flex-row justify-center mt-5 mx-3">
+                <p class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Nom de l'encadrant
+                </p>
+                <div class="flex w-3/4">
+                    <input
+                        class="h-full w-full rounded-r-lg pl-3"
+                        type="text"
+                        id="name"
+                        placeholder="Entrer le nom de l'élève"
+                        formControlName="teacher"
+                        matInput
+                        [matAutocomplete]="auto" />
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option
+                            *ngFor="let teacher of teacherListAutocompletion | async"
+                            [value]="teacherName(teacher)">
+                            {{ teacherName(teacher) }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+            </div>
+            <div
+                *ngIf="addTeacherForm.controls['teacher'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le nom est obligatoire.
+            </div>
+            <div
+                *ngIf="addTeacherForm.controls['teacher'].errors?.['nameError']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                {{ addTeacherForm.controls["teacher"].errors?.["nameError"] }}
+            </div>
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label for="TP" class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    TP accessibles par l'encadrant
+                </label>
+                <select multiple id="TP" class="flex w-3/4 rounded-r-lg" formControlName="TP" required>
+                    <option *ngFor="let tp of tps" value="{{ tp }}">{{ tp }}</option>
+                </select>
+            </div>
+            <div
+                *ngIf="addTeacherForm.controls['TP'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Veuillez choir un TP.
+            </div>
+            <div class="flex flex-row">
+                <button
+                    id="cancel"
+                    type="button"
+                    (click)="onCancel()"
+                    class="flex justify-center items-center w-fit bg-redButton rounded-lg py-2 ml-3 mr-3 my-3">
+                    <p class="flex text-white mx-3">Annuler</p>
+                </button>
+                <button
+                    id="save"
+                    type="submit"
+                    [disabled]="!addTeacherForm.valid"
+                    class="flex justify-center items-center w-fit bg-blueButton disabled:bg-blue-400 hover:bg-blue-800 rounded-lg py-2 ml-auto mr-3 my-3">
+                    <p class="flex text-white mx-3">Ajouter l'encadrant</p>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

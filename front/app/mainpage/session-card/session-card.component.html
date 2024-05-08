@@ -1,0 +1,118 @@
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ml-5 overflow-y-auto">
+    <div *ngFor="let session of sessions" class="flex flex-col justify-center mt-4 mx-4 bg-grey-dark rounded-lg">
+        <div class="container h-full mx-auto relative border-b justify-center flex">
+            <img class="object-contain top-0" src="{{ '/assets/imgJoin/' + session.TP + '.png' }}" alt="Icône du TP" />
+            <!-- TODO: change image -->
+            <div
+                class="absolute top-0 right-0 mt-1 mr-1 h-fit rounded-lg"
+                [class.bg-greenPellet]="session.status === SessionStatus.INPROGRESS"
+                [class.bg-redPellet]="session.status === SessionStatus.DONE"
+                [class.bg-blueButton]="session.status === SessionStatus.SCHEDULED">
+                <p class="my-1 mx-1 text-center text-white text-xs font-medium font-inter">
+                    {{
+                        session.status === SessionStatus.INPROGRESS
+                            ? "En cours"
+                            : session.status === SessionStatus.DONE
+                              ? "Terminée"
+                              : "Programmée"
+                    }}
+                </p>
+            </div>
+            <button
+                *ngIf="
+                    (user.type === UserType.TEACHER || user.type === UserType.ADMIN) &&
+                    session.status !== SessionStatus.DONE &&
+                    Header.name !== 'Notes'
+                "
+                class="absolute top-0 left-0 mt-1 ml-1 w-[30px] h-fit bg-blue-700 hover:bg-blue-800 rounded-lg"
+                (click)="gotoEditSession(session)">
+                <svg class="" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Group 28">
+                        <rect id="Rectangle 23" width="30" height="30" rx="10" />
+                        <g id="Vector">
+                            <path
+                                d="M24.4424 20.6748C24.4424 23.083 22.4854 25.04 20.0771 25.04H9.54785C7.13965 25.04 5.18262 23.083 5.18262 20.6748V10.1484C5.18262 7.74023 7.13965 5.7832 9.54785 5.7832H13.3506V4.53223H9.54785C6.45117 4.53223 3.93164 7.05176 3.93164 10.1484V20.6748C3.93164 23.7715 6.45117 26.291 9.54785 26.291H20.0742C23.1709 26.291 25.6904 23.7715 25.6904 20.6748V16.8721H24.4395V20.6748H24.4424Z"
+                                fill="white" />
+                            <path
+                                d="M26.0655 4.78711C25.3946 4.11621 24.5128 3.7793 23.631 3.7793C22.7491 3.7793 21.8702 4.11621 21.1964 4.78711L9.14072 16.8428C8.64561 17.3379 8.32334 17.9795 8.22666 18.6738L7.67002 22.5645C7.62315 22.8984 7.88389 23.1885 8.20908 23.1885C8.23545 23.1885 8.26182 23.1855 8.28819 23.1826L12.1788 22.626C12.8731 22.5264 13.5147 22.207 14.0099 21.7119L26.0655 9.65625C27.4103 8.31152 27.4103 6.13184 26.0655 4.78711ZM10.6056 17.1475L20.8097 6.94336L23.9063 10.043L13.7052 20.2471L10.6056 17.1475ZM12.003 21.3867L9.04111 21.8086L9.46299 18.8467C9.50401 18.5684 9.60361 18.2988 9.75303 18.0645L12.7823 21.0938C12.548 21.2461 12.2813 21.3486 12.003 21.3867ZM25.1808 8.76855L24.7911 9.1582L21.6944 6.05859L22.0841 5.66895C22.4972 5.25586 23.048 5.02734 23.6339 5.02734C24.2198 5.02734 24.7706 5.25586 25.1837 5.66895C26.0362 6.52441 26.0362 7.91602 25.1808 8.76855Z"
+                                fill="white" />
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col justify-center w-full mt-5">
+            <p
+                class="mb-5 mx-1 text-center text-xl font-medium font-inter"
+                [ngStyle]="{ 'font-size': calculateFontSize(session.name.length) }">
+                {{ session.name }}
+            </p>
+            <div
+                *ngIf="user.type === UserType.TEACHER || user.type === UserType.ADMIN"
+                class="flex flex-row flex-wrap justify-center">
+                <div *ngIf="Header.name !== 'Notes'">
+                    <button
+                        *ngIf="session.status === SessionStatus.SCHEDULED"
+                        (click)="gotoEditSession(session)"
+                        class="w-fit mx-auto mt-auto mb-3 justify-center bg-blue-700 hover:bg-blue-800 rounded-lg text-white">
+                        <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Modifier</p>
+                    </button>
+                    <button
+                        *ngIf="session.status === SessionStatus.SCHEDULED"
+                        (click)="deleteSession(session)"
+                        class="w-fit mx-auto mt-auto mb-3 justify-center bg-red-700 hover:bg-red-800 rounded-lg text-white">
+                        <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Supprimer</p>
+                    </button>
+                    <button
+                        *ngIf="session.status === SessionStatus.INPROGRESS"
+                        (click)="endSession(session)"
+                        class="w-fit mx-auto mt-auto mb-3 justify-center bg-red-700 hover:bg-red-800 rounded-lg text-white">
+                        <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Terminer</p>
+                    </button>
+                    <button
+                        *ngIf="session.status === SessionStatus.INPROGRESS"
+                        (click)="gotoProgression(session)"
+                        class="w-fit mx-auto mt-auto mb-3 justify-center bg-blue-700 hover:bg-blue-800 rounded-lg text-white">
+                        <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Consulter</p>
+                    </button>
+                    <button
+                        *ngIf="session.status === SessionStatus.DONE"
+                        [routerLink]="['/grade-teacher', session.id, 'lookup']"
+                        class="w-fit mx-auto mt-auto mb-3 justify-center bg-blue-700 hover:bg-blue-800 rounded-lg text-white">
+                        <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Voir notes</p>
+                    </button>
+                </div>
+                <div *ngIf="Header.name === 'Notes'">
+                    <button
+                        (click)="gotoClickedListGrade(session)"
+                        class="w-fit mx-auto mt-auto mb-3 justify-center bg-blue-700 hover:bg-blue-800 rounded-lg text-white">
+                        <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Voir Notes</p>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="user.type === UserType.STUDENT" class="flex flex-row flex-wrap justify-center">
+                <button
+                    *ngIf="session.status === SessionStatus.INPROGRESS && !session.joined; else sessionJoined"
+                    (click)="openDialog(session)"
+                    class="w-fit mx-auto mt-auto mb-3 justify-center bg-blue-700 hover:bg-blue-800 rounded-lg text-white">
+                    <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Rejoindre</p>
+                </button>
+                <ng-template #sessionJoined>
+                    <button
+                        *ngIf="session.status === SessionStatus.INPROGRESS && session.joined"
+                        (click)="rejoinSession(session)"
+                        class="w-fit mx-auto mt-auto mb-3 justify-center bg-blue-700 hover:bg-blue-800 rounded-lg text-white">
+                        <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Rejoindre</p>
+                    </button>
+                </ng-template>
+                <button
+                    *ngIf="session.status === SessionStatus.DONE"
+                    [routerLink]="['/grade']"
+                    class="w-fit mx-auto mt-auto mb-3 justify-center bg-blue-700 hover:bg-blue-800 rounded-lg text-white">
+                    <!-- TODO: redirect to grade or maybe open page to select who helped you-->
+                    <p class="cursor-pointer text-base my-3 mx-1 leading-3 text-white font-inter">Consulter</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

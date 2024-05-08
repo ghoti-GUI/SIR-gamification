@@ -1,0 +1,90 @@
+<div class="flex flex-col w-full min-h-screen bg-grey">
+    <app-header [section]="section"></app-header>
+    <div class="ml-8 my-3">
+        <p>Création de session</p>
+        <form
+            [formGroup]="sessionForm"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col justify-center my-3 mr-3 h-full border border-borderTable rounded-lg bg-bgCreateSession">
+            <div class="flex flex-row justify-center mt-5 mx-3">
+                <label
+                    for="name"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Nom de la session
+                </label>
+                <input type="text" id="name" class="flex px-2 w-3/4 rounded-r-lg" formControlName="name" required />
+            </div>
+            <div
+                *ngIf="sessionForm.controls['name'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le nom est obligatoire.
+            </div>
+            <div
+                *ngIf="sessionForm.controls['name'].errors?.['minlength']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le nom doit contenir au moins 4 caractères.
+            </div>
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label
+                    for="password"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Mot de passe
+                </label>
+                <input
+                    type="password"
+                    id="password"
+                    class="flex px-2 w-3/4 rounded-r-lg"
+                    formControlName="password"
+                    required />
+            </div>
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label for="TP" class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    TP
+                </label>
+                <select id="TP" class="flex px-2 w-3/4 rounded-r-lg" formControlName="TP" required>
+                    <option value="">Choisissez un TP</option>
+                    <option *ngFor="let tp of tps" [value]="tp">{{ tp }}</option>
+                </select>
+            </div>
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label
+                    for="startDate"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Heure de début
+                </label>
+                <input
+                    type="datetime-local"
+                    id="startDate"
+                    class="flex px-2 w-3/4 rounded-r-lg"
+                    formControlName="startDate"
+                    step="300"
+                    required />
+            </div>
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label
+                    for="endDate"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Heure de fin
+                </label>
+                <input
+                    type="datetime-local"
+                    id="endDate"
+                    class="flex px-2 w-3/4 rounded-r-lg"
+                    formControlName="endDate"
+                    step="300"
+                    required />
+            </div>
+            <div
+                *ngIf="sessionForm.controls['endDate'].errors?.['dateError']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                {{ sessionForm.controls["endDate"].errors?.["dateError"] }}
+            </div>
+            <button
+                type="submit"
+                [disabled]="!sessionForm.valid"
+                class="flex justify-center items-center w-fit bg-blue-700 disabled:bg-blue-400 hover:bg-blue-800 rounded-lg py-2 ml-auto mr-3 mb-3 mt-5">
+                <p class="flex text-white mx-3">Créer une session</p>
+            </button>
+        </form>
+    </div>
+</div>

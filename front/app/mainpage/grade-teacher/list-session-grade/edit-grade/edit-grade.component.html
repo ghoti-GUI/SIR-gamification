@@ -1,0 +1,191 @@
+<div class="flex flex-col w-full min-h-screen bg-grey" *ngIf="!loading">
+    <app-header [section]="section"></app-header>
+    <div class="ml-8 my-3">
+        <form
+            [formGroup]="singleGradeForm"
+            (ngSubmit)="onSubmitStudentGrade()"
+            class="flex flex-col justify-center my-3 mr-3 h-full border border-borderTable rounded-lg bg-bgCreateSession">
+            <p class="flex flex-row mt-5 mx-3">Modifier la note d'un élève</p>
+            <div class="flex flex-row justify-center mt-5 mx-3">
+                <label
+                    for="name"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 h-full rounded-l-lg">
+                    Nom de l'élève*
+                </label>
+                <div class="flex w-3/4">
+                    <input
+                        class="h-full w-full rounded-r-lg pl-3"
+                        type="text"
+                        id="name"
+                        placeholder="Entrer le nom de l'élève"
+                        formControlName="name"
+                        matInput
+                        [matAutocomplete]="auto" />
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option
+                            *ngFor="let student of studentListAutocompletion | async"
+                            [value]="student.studentName">
+                            {{ student.studentName }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+            </div>
+            <div
+                *ngIf="singleGradeForm.controls['name'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le nom est obligatoire.
+            </div>
+            <div
+                *ngIf="singleGradeForm.controls['name'].errors?.['nameError']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                {{ singleGradeForm.controls["name"].errors?.["nameError"] }}
+            </div>
+            <div *ngIf="!singleGradeForm.controls['name'].errors" class="mt-3 mx-3 pl-6 text-sm">
+                <p>
+                    Note de l'élève:
+                    <span class="font-bold ml-1">{{ chosenStudent?.grade }}</span>
+                </p>
+                <p>
+                    Niveau atteint: <span class="font-bold ml-1">{{ chosenStudent?.level }}</span>
+                </p>
+                <p class="text-red-500 text-sm" *ngIf="chosenStudent?.gradeOverriden">
+                    La note de l'élève a été modifiée manuellement.
+                    <button type="button" class="text-blue-500 hover:text-blue-700" (click)="resetGrade()">
+                        Réinitialiser
+                    </button>
+                </p>
+            </div>
+
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label
+                    for="singleGrade"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Note*
+                </label>
+                <div class="flex w-3/4">
+                    <input
+                        class="h-full w-full rounded-r-lg pl-3"
+                        type="text"
+                        id="singleGrade"
+                        placeholder="Entrez une note"
+                        formControlName="grade"
+                        [value]="chosenStudent?.gradeOverriden ? chosenStudent?.grade : ''" />
+                </div>
+            </div>
+            <div
+                *ngIf="singleGradeForm.controls.grade.hasError('invalidNote')"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                La note doit être comprise entre 0 et 20.
+            </div>
+            <div
+                *ngIf="singleGradeForm.controls['grade'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                La note est obligatoire.
+            </div>
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label
+                    for="comment"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Commentaires
+                </label>
+                <div class="flex w-3/4">
+                    <input
+                        class="h-full w-full rounded-r-lg pl-3"
+                        type="text"
+                        id="comment"
+                        placeholder="Commentaires"
+                        formControlName="comment"
+                        [value]="chosenStudent?.gradeComment" />
+                </div>
+            </div>
+            <div class="flex">
+                <button
+                    (click)="gotoListGrade()"
+                    class="flex justify-center items-center w-fit bg-redButton hover:bg-red-800 rounded-lg py-2 ml-3 mr-3 mb-auto mt-5">
+                    <p class="flex text-white mx-3">Annuler</p>
+                </button>
+                <button
+                    type="submit"
+                    [disabled]="!singleGradeForm.valid"
+                    class="flex justify-center items-center w-fit bg-blueButton disabled:bg-blue-400 hover:bg-blue-800 rounded-lg py-2 ml-auto mr-3 mb-3 mt-5">
+                    <p class="flex text-white mx-3">Modifier</p>
+                </button>
+            </div>
+        </form>
+        <form
+            [formGroup]="levelGradeForm"
+            (ngSubmit)="onSubmitLevelGrade()"
+            class="flex flex-col justify-center my-3 mr-3 h-full border border-borderTable rounded-lg bg-bgCreateSession">
+            <p class="flex flex-row mt-5 mx-3">Modifier la note attribuée à un niveau</p>
+            <div class="flex flex-row mt-5 mx-3 overflow-auto">
+                <label
+                    for="level"
+                    class="flex bg-white rounded py-2 px-6 border-r border-borderTable w-1/4 min-w-fit rounded-l-lg">
+                    Niveau*
+                </label>
+                <select
+                    id="level"
+                    class="flex px-2 w-3/4 min-w-fit max-w-75% text-wrap rounded-r-lg"
+                    formControlName="level"
+                    required>
+                    <option value="">Choisissez un niveau</option>
+                    <option *ngFor="let level of session.indexGrades | keyvalue">
+                        {{ level.key }}
+                    </option>
+                </select>
+            </div>
+            <div
+                *ngIf="levelGradeForm.controls['level'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le niveau est obligatoire.
+            </div>
+            <div *ngIf="!levelGradeForm.controls['level'].errors?.['required']" class="flex mt-3 mx-3 pl-6 text-sm">
+                <p>
+                    La note actuelle correspond à ce niveau est:
+                    <span class="font-bold ml-1">{{ gradeOfSelectedLevel }}</span>
+                </p>
+            </div>
+
+            <div class="flex flex-row overflow-auto mt-3 mx-3">
+                <label
+                    for="levelGrade"
+                    class="flex bg-white rounded py-2 px-6 border-r border-borderTable w-1/4 min-w-fit h-full rounded-l-lg">
+                    Note*
+                </label>
+                <div class="flex min-w-fit w-3/4">
+                    <input
+                        class="h-full w-full min-w-fit rounded-r-lg px-3"
+                        type="text"
+                        id="levelGrade"
+                        placeholder="Entrez une note pour ce niveau"
+                        formControlName="grade"
+                        [value]="gradeOfSelectedLevel === 0 ? '0' : gradeOfSelectedLevel" />
+                </div>
+            </div>
+            <div
+                *ngIf="levelGradeForm.controls.grade.hasError('invalidNote')"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                La note doit être comprise entre 0 et 20.
+            </div>
+            <button
+                type="button"
+                class="flex flex-row justify-center items-center w-fit bg-blueButton hover:bg-blue-800 rounded-lg py-1 ml-2 mr-auto mb-3 mt-5"
+                (click)="resetLevelGrade()">
+                <p class="flex text-white mx-3">Réinitialiser aux valeurs par défaut</p>
+            </button>
+            <div class="flex">
+                <button
+                    (click)="gotoListGrade()"
+                    class="flex justify-center items-center w-fit bg-redButton hover:bg-red-800 rounded-lg py-2 ml-3 mr-3 mb-auto mt-5">
+                    <p class="flex text-white mx-3">Annuler</p>
+                </button>
+                <button
+                    type="submit"
+                    [disabled]="!levelGradeForm.valid"
+                    class="flex justify-center items-center w-fit bg-blueButton disabled:bg-blue-400 hover:bg-blue-800 rounded-lg py-2 ml-auto mr-3 mb-3 mt-5">
+                    <p class="flex text-white mx-3">Modifier</p>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

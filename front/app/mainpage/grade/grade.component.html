@@ -1,0 +1,50 @@
+<div class="flex flex-col min-w-full w-fit min-h-screen bg-grey">
+    <app-header [section]="section"></app-header>
+    <table
+        class="mt-5 m-3 bg-bgTable text-center border-y border-x border-separate border-spacing-0 rounded-t-lg rounded-b-lg overflow-hidden">
+        <thead class="justify-center items-center border-t rounded-t-lg bg-bgHeaderTable">
+            <tr class="text-center">
+                <th class="border-r border-borderTable">TP</th>
+                <th class="border-r border-borderTable">Session</th>
+                <th class="border-r border-borderTable">Niveau atteint</th>
+                <th class="border-r border-borderTable">Note</th>
+                <th class="border-r border-borderTable" matTooltip="Indépendante des bonus" matTooltipPosition="above">
+                    Moyenne
+                </th>
+                <th class="border-r border-borderTable" matTooltip="Indépendant des bonus" matTooltipPosition="above">
+                    Ecart-type
+                </th>
+                <th class="border-r border-borderTable">Coefficient</th>
+                <th class="">Bonus</th>
+            </tr>
+        </thead>
+        <tbody class="[&>*:nth-child(even)]:bg-bgTableDark">
+            <tr *ngFor="let grade of grades; let index = index">
+                <td class="border-r border-borderTable">{{ grade.tp | titlecase }}</td>
+                <td class="border-r border-borderTable">{{ grade.sessionName }}</td>
+                <td class="border-r border-borderTable">{{ grade.level }}</td>
+                <td class="border-r border-borderTable">
+                    {{ grade.grade }}
+                    <span
+                        *ngIf="grade.bonus > 0"
+                        class="text-green-500"
+                        matTooltip="Bonus pour avoir aidé des étudiants"
+                        matTooltipPosition="above">
+                        + {{ grade.bonus }}</span
+                    >
+                </td>
+                <td class="border-r border-borderTable">{{ grade.mean }}</td>
+                <td class="border-r border-borderTable">{{ grade.std }}</td>
+                <td class="border-r border-borderTable">{{ grade.coefficient }}</td>
+                <td class="flex justify-center">
+                    <!-- TODO Show voted students -->
+                    <button
+                        class="flex justify-center items-center text-white w-fit bg-blueButton disabled:bg-blue-400 hover:bg-blue-800 rounded-lg py-2 px-2 my-1"
+                        (click)="popupBonus(grade)">
+                        Ajouter un bonus
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

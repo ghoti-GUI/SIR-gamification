@@ -1,0 +1,61 @@
+<div class="flex flex-col w-full min-h-screen bg-grey justify-items-center">
+    <div class="mx-auto my-auto w-9/12">
+        <p>Connexion</p>
+        <form
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()"
+            class="flex flex-col justify-center my-3 mr-3 h-full border border-borderTable rounded-lg bg-bgCreateSession">
+            <div class="flex flex-row justify-center mt-5 mx-3">
+                <label
+                    for="username"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Nom d'utilisateur
+                </label>
+                <input
+                    type="text"
+                    id="username"
+                    class="flex px-2 w-3/4 rounded-r-lg"
+                    formControlName="username"
+                    required />
+            </div>
+            <div
+                *ngIf="loginForm.controls['username'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le nom d'utilisateur est obligatoire.
+            </div>
+            <div class="flex flex-row justify-center mt-3 mx-3">
+                <label
+                    for="password"
+                    class="flex bg-white rounded py-2 pl-6 border-r border-borderTable w-1/4 rounded-l-lg">
+                    Mot de passe
+                </label>
+                <input
+                    type="password"
+                    id="password"
+                    class="flex px-2 w-3/4 rounded-r-lg"
+                    formControlName="password"
+                    required />
+            </div>
+            <div
+                *ngIf="loginForm.controls['password'].errors?.['required']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Le mot de passe est obligatoire.
+            </div>
+            <div
+                *ngIf="loginForm.controls['password'].errors?.['loginError']"
+                class="flex mt-3 mx-3 pl-6 text-red-500 text-sm">
+                Nom d'utilisateur ou mot de passe incorrect.
+            </div>
+            <button
+                type="submit"
+                [disabled]="!loginForm.valid"
+                class="flex justify-center items-center w-fit bg-blue-700 disabled:bg-blue-400 hover:bg-blue-800 rounded-lg py-2 ml-auto mr-3 mb-3 mt-5">
+                <p class="flex text-white mx-3">Se connecter</p>
+            </button>
+        </form>
+        <p class="flex justify-center items-center text-sm">
+            Pas encore de compte ?
+            <a class="text-blue-700 hover:text-blue-800" [routerLink]="['/register']"> S'inscrire</a>
+        </p>
+    </div>
+</div>
