@@ -1,0 +1,13 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 2 - Liste des Années{% endblock %}
+{% block content %}
+<h1>Liste des Années</h1>
+<ul>
+    {% for year in years %}
+    <li>
+        <a href="scrap/{{ year }}">{{ year }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

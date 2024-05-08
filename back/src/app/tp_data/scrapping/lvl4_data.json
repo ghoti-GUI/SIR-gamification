@@ -1,0 +1,574 @@
+{
+    "persons": [
+        {
+            "name": "Georges Toutain",
+            "username": "gtoutain",
+            "initials": "GTO",
+            "mail": "georges.toutain@insa-lyon.fr"
+        },
+        {
+            "name": "Jacques Boutin",
+            "username": "jboutin",
+            "initials": "JBO",
+            "mail": "jacques.Boutin@insa-lyon.fr"
+        },
+        {
+            "name": "Alceste Blanc",
+            "username": "ablanc",
+            "initials": "ABL",
+            "mail": "alceste.blanc@insa-lyon.fr"
+        },
+        {
+            "name": "Abel Girard",
+            "username": "agirard",
+            "initials": "AGI",
+            "mail": "abel.girard@insa-lyon.fr"
+        },
+        {
+            "name": "Paul Dutertre",
+            "username": "pdutertre",
+            "initials": "PDU",
+            "mail": "paul.dutertre@insa-lyon.fr"
+        },
+        {
+            "name": "Maximilien Féret",
+            "username": "mferet",
+            "initials": "MFE",
+            "mail": "maximilien.feret@insa-lyon.fr"
+        },
+        {
+            "name": "Igor Rochefort",
+            "username": "irochefort",
+            "initials": "IRO",
+            "mail": "igor.rochefort@insa-lyon.fr"
+        },
+        {
+            "name": "Florentin Alarie",
+            "username": "falarie",
+            "initials": "FAL",
+            "mail": "florentin.alarie@insa-lyon.fr"
+        },
+        {
+            "name": "Bertrand Duret",
+            "username": "bduret",
+            "initials": "BDU",
+            "mail": "bertrand.duret@insa-lyon.fr"
+        },
+        {
+            "name": "Maximilien Plouffe",
+            "username": "mplouffe",
+            "initials": "MPL",
+            "mail": "maximilien.plouffe@insa-lyon.fr"
+        },
+        {
+            "name": "Rolande Raoult",
+            "username": "rraoult",
+            "initials": "RRA",
+            "mail": "rolande.raoult@insa-lyon.fr"
+        },
+        {
+            "name": "Stéphane Duval",
+            "username": "sduval",
+            "initials": "SDU",
+            "mail": "stephane.duval@insa-lyon.fr"
+        },
+        {
+            "name": "Ophélie Berger",
+            "username": "oberger",
+            "initials": "OBE",
+            "mail": "ophelie.berger@insa-lyon.fr"
+        },
+        {
+            "name": "Roselyne Blanc",
+            "username": "rblanc",
+            "initials": "RBL",
+            "mail": "roselyne.blanc@insa-lyon.fr"
+        },
+        {
+            "name": "Amélie Jacquinot",
+            "username": "ajacquinot",
+            "initials": "AJA",
+            "mail": "amelie.jacquinot@insa-lyon.fr"
+        },
+        {
+            "name": "Dorothée Mallet",
+            "username": "dmallet",
+            "initials": "DMA",
+            "mail": "dorothee.mallet@insa-lyon.fr"
+        },
+        {
+            "name": "Blandine Peltier",
+            "username": "bpeltier",
+            "initials": "BPE",
+            "mail": "blandine.peltier@insa-lyon.fr"
+        },
+        {
+            "name": "Odile Girard",
+            "username": "ogirard",
+            "initials": "OGI",
+            "mail": "odile.girard@insa-lyon.fr"
+        },
+        {
+            "name": "Sarah Baschet",
+            "username": "sbaschet",
+            "initials": "SBA",
+            "mail": "sarah.baschet@insa-lyon.fr"
+        },
+        {
+            "name": "Julie Delaplace",
+            "username": "jdelaplace",
+            "initials": "JDE",
+            "mail": "julie.delaplace@insa-lyon.fr"
+        },
+        {
+            "name": "Wilfried Jacquinot",
+            "username": "wjacquinot",
+            "initials": "WJA",
+            "mail": "wilfried.jacquinot@insa-lyon.fr"
+        },
+        {
+            "name": "Edgar Bassot",
+            "username": "ebassot",
+            "initials": "EBA",
+            "mail": "edgar.bassot@insa-lyon.fr"
+        },
+        {
+            "name": "Alban Parchant",
+            "username": "aparchant",
+            "initials": "APA",
+            "mail": "alban.parchant@insa-lyon.fr"
+        },
+        {
+            "name": "José Goutet",
+            "username": "jgoutet",
+            "initials": "JGO",
+            "mail": "jose.goutet@insa-lyon.fr"
+        },
+        {
+            "name": "Henry Dufresne",
+            "username": "hdufresne",
+            "initials": "HDU",
+            "mail": "henry.dufresne@insa-lyon.fr"
+        },
+        {
+            "name": "Alphonse Allais",
+            "username": "aallais",
+            "initials": "AAL",
+            "mail": "alphonse.allais@insa-lyon.fr"
+        },
+        {
+            "name": "Élie Poullain",
+            "username": "epoullain",
+            "initials": "EPO",
+            "mail": "elie.poullain@insa-lyon.fr"
+        },
+        {
+            "name": "Lucas Duval",
+            "username": "lduval",
+            "initials": "LDU",
+            "mail": "lucas.duval@insa-lyon.fr"
+        },
+        {
+            "name": "Germain Ballouhey",
+            "username": "gballouhey",
+            "initials": "GBA",
+            "mail": "germain.ballouhey@insa-lyon.fr"
+        },
+        {
+            "name": "Thibaud Allaire",
+            "username": "tallaire",
+            "initials": "TAL",
+            "mail": "thibaud.allaire@insa-lyon.fr"
+        },
+        {
+            "name": "Adeline Bethune",
+            "username": "abethune",
+            "initials": "ABE",
+            "mail": "adeline.bethune@insa-lyon.fr"
+        },
+        {
+            "name": "Nancy Chappuis",
+            "username": "nchappuis",
+            "initials": "NCH",
+            "mail": "nancy.chappuis@insa-lyon.fr"
+        },
+        {
+            "name": "Jade Gérin-Lajoie",
+            "username": "jgerin",
+            "initials": "JGE",
+            "mail": "jade.gerin-lajoie@insa-lyon.fr"
+        },
+        {
+            "name": "Noémie Pélissier",
+            "username": "npelissier",
+            "initials": "NPE",
+            "mail": "noemie.pelissier@insa-lyon.fr"
+        },
+        {
+            "name": "Valentine Beaugendre",
+            "username": "vbeaugendre",
+            "initials": "VBE",
+            "mail": "valentine.beaugendre@insa-lyon.fr"
+        },
+        {
+            "name": "Miryam Crépin",
+            "username": "mcrepin",
+            "initials": "MCR",
+            "mail": "miryam.crepin@insa-lyon.fr"
+        },
+        {
+            "name": "Aurore Desjardins",
+            "username": "adesjardins",
+            "initials": "ADE",
+            "mail": "aurore.desjardins@insa-lyon.fr"
+        },
+        {
+            "name": "Cécilia Abadie",
+            "username": "cabadie",
+            "initials": "CAB",
+            "mail": "cecilia.abadie@insa-lyon.fr"
+        },
+        {
+            "name": "Séverine Rousseau",
+            "username": "srousseau",
+            "initials": "SRO",
+            "mail": "severine.rousseau@insa-lyon.fr"
+        },
+        {
+            "name": "Ghyslaine Grinda",
+            "username": "ggrinda",
+            "initials": "GGR",
+            "mail": "ghyslaine.grinda@insa-lyon.fr"
+        },
+        {
+            "name": "Céline Crevier",
+            "username": "ccrevier",
+            "initials": "CCR",
+            "mail": "celine.crevier@insa-lyon.fr"
+        },
+        {
+            "name": "Flore Féret",
+            "username": "fferet",
+            "initials": "FFE",
+            "mail": "flore.feret@insa-lyon.fr"
+        },
+        {
+            "name": "Rose-Marie Delisle",
+            "username": "rdelisle",
+            "initials": "RDE",
+            "mail": "rose-marie.delisle@insa-lyon.fr"
+        },
+        {
+            "name": "Abélia Dubos",
+            "username": "adubos",
+            "initials": "ADU",
+            "mail": "abelia.dubos@insa-lyon.fr"
+        },
+        {
+            "name": "Pascale Compere",
+            "username": "pcompere",
+            "initials": "PCO",
+            "mail": "pascale.compere@insa-lyon.fr"
+        },
+        {
+            "name": "Anne Barrault",
+            "username": "abarrault",
+            "initials": "ABA",
+            "mail": "anne.barrault@insa-lyon.fr"
+        },
+        {
+            "name": "Charlotte Bassot",
+            "username": "cbassot",
+            "initials": "CBA",
+            "mail": "charlotte.bassot@insa-lyon.fr"
+        },
+        {
+            "name": "Élise Lefrançois",
+            "username": "elefrancois",
+            "initials": "ELE",
+            "mail": "elise.lefrancois@insa-lyon.fr"
+        },
+        {
+            "name": "Solange Moulin",
+            "username": "smoulin",
+            "initials": "SMO",
+            "mail": "solange.moulin@insa-lyon.fr"
+        },
+        {
+            "name": "Arlette Marchal",
+            "username": "amarchal",
+            "initials": "AMA",
+            "mail": "arlette.marchal@insa-lyon.fr"
+        },
+        {
+            "name": "Dany Beaugendre",
+            "username": "dbeaugendre",
+            "initials": "DBE",
+            "mail": "dany.beaugendre@insa-lyon.fr"
+        },
+        {
+            "name": "Max Auberjonois",
+            "username": "mauberjonois",
+            "initials": "MAU",
+            "mail": "max.auberjonois@insa-lyon.fr"
+        },
+        {
+            "name": "Gervais Aubert",
+            "username": "gaubert",
+            "initials": "GAU",
+            "mail": "gervais.aubert@insa-lyon.fr"
+        },
+        {
+            "name": "Marius Deloffre",
+            "username": "mdeloffre",
+            "initials": "MDE",
+            "mail": "marius.deloffre@insa-lyon.fr"
+        },
+        {
+            "name": "Florent Daboville",
+            "username": "fdaboville",
+            "initials": "FDA",
+            "mail": "florent.daboville@insa-lyon.fr"
+        },
+        {
+            "name": "Sébastien Lazard",
+            "username": "slazard",
+            "initials": "SLA",
+            "mail": "sebastien.lazard@insa-lyon.fr"
+        },
+        {
+            "name": "Colin Prudhomme",
+            "username": "cprudhomme",
+            "initials": "CPR",
+            "mail": "colin.prudhomme@insa-lyon.fr"
+        },
+        {
+            "name": "Adrien Hector",
+            "username": "ahector",
+            "initials": "AHE",
+            "mail": "adrien.hector@insa-lyon.fr"
+        },
+        {
+            "name": "Simon Regnard",
+            "username": "sregnard",
+            "initials": "SRE",
+            "mail": "simon.regnard@insa-lyon.fr"
+        },
+        {
+            "name": "Gauthier Rouzet",
+            "username": "grouzet",
+            "initials": "GRO",
+            "mail": "gauthier.rouzet@insa-lyon.fr"
+        },
+        {
+            "name": "Tim Berners-Lee",
+            "username": "tberners",
+            "initials": "TBE",
+            "mail": "tim.berners-lee@insa-lyon.fr"
+        }
+    ],
+    "dogs": [
+        "Abeille",
+        "Adèle",
+        "Ashton",
+        "Ace",
+        "Arielle",
+        "Angélique",
+        "Anouk",
+        "Arthur",
+        "Amina",
+        "Astro",
+        "Béatrice",
+        "Béa",
+        "Billy",
+        "Bilou",
+        "Binou",
+        "Bernard",
+        "Bess",
+        "Buck",
+        "Boss",
+        "Bonnie",
+        "Bob",
+        "Bobbie",
+        "Céleste",
+        "Cyd",
+        "Clide",
+        "Charlotte",
+        "Cooper",
+        "Caleb",
+        "Costa",
+        "Cerise",
+        "Charlie",
+        "Diego",
+        "Dalton",
+        "Dex",
+        "Destin",
+        "Dali",
+        "Dalia",
+        "Damien",
+        "Demi",
+        "Elliot",
+        "Elio",
+        "Ellie",
+        "Ella",
+        "Émile",
+        "Émeraude",
+        "Estelle",
+        "Eva",
+        "Ernest",
+        "Edmond",
+        "Eddy",
+        "Fernand",
+        "Fiona",
+        "Fidèle",
+        "Fardoche",
+        "Fifi",
+        "Folie",
+        "Fadette",
+        "Finnigan",
+        "Finley",
+        "Fran",
+        "Flash",
+        "Georges",
+        "Grégoire",
+        "Gaston",
+        "Greg",
+        "Gargamelle",
+        "Gemma",
+        "Gin",
+        "Hariette",
+        "Henri",
+        "Hans",
+        "Hannah",
+        "Irma",
+        "Irina",
+        "Ian",
+        "Icare",
+        "Igor",
+        "Ima",
+        "Jasmine",
+        "Jodie",
+        "Jane",
+        "Jackson",
+        "Jason",
+        "Joe",
+        "Janelle",
+        "Jasper",
+        "Jeremie",
+        "Jolyne",
+        "Jules",
+        "Jeep",
+        "Kyle",
+        "Kyko",
+        "Kenzo",
+        "Koko",
+        "Kyra",
+        "Lance",
+        "Lison",
+        "Lili",
+        "Léo",
+        "Léon",
+        "Loulou",
+        "Lester",
+        "Lenny",
+        "Mia",
+        "Mina",
+        "Mila",
+        "Maya",
+        "Mo",
+        "Mejhoul",
+        "Mascotte",
+        "Marco",
+        "Mel",
+        "Mathilde",
+        "Margaux",
+        "Mister",
+        "Monsieur",
+        "Nana",
+        "Nina",
+        "Ninon",
+        "Ninja",
+        "Noah",
+        "Nanouk",
+        "Nix",
+        "Nova",
+        "Olive",
+        "Olivia",
+        "Ophélie",
+        "Ophélia",
+        "Odette",
+        "Odin",
+        "Oscar",
+        "Olaf",
+        "Papie",
+        "Poppie",
+        "Pal",
+        "Peperette",
+        "Philomène",
+        "Phil",
+        "Pilou",
+        "Pamela",
+        "Paloma",
+        "Pepper",
+        "Quest",
+        "Rémi",
+        "Ralph",
+        "Ramone",
+        "Rasta",
+        "Rio",
+        "Ron",
+        "Romy",
+        "Rénata",
+        "Soraya",
+        "Sam",
+        "Sammy",
+        "Samira",
+        "Sesame",
+        "Sol",
+        "Steeve",
+        "Soya",
+        "Sunny",
+        "Souris",
+        "Sniff",
+        "Simone",
+        "Talulah",
+        "Tom",
+        "Tia",
+        "Tiana",
+        "Tiara",
+        "Tabou",
+        "Tootsie",
+        "Tamara",
+        "Tahiti",
+        "Tara",
+        "Tommy",
+        "Tess",
+        "Tessa",
+        "Ulysse",
+        "Ursule",
+        "Vania",
+        "Victoire",
+        "Victoria",
+        "Valder",
+        "Valentin",
+        "Vicky",
+        "Volt",
+        "Voltaire",
+        "Willy",
+        "William",
+        "Will",
+        "Wutang",
+        "Xavier",
+        "Ya-ya",
+        "Yasmina",
+        "Yacinthe",
+        "Yo-yo",
+        "Yvonne",
+        "Yanni",
+        "Zac",
+        "Zazou",
+        "Zed",
+        "Zelda",
+        "Zoé"
+    ]
+}

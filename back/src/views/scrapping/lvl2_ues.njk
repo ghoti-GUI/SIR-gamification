@@ -1,0 +1,13 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 2 - Liste des UEs{% endblock %}
+{% block content %}
+<h1>Liste des UEs</h1>
+<ul>
+    {% for ue in ues %}
+    <li>
+        <a href="scrap/{{year | urlencode}}/{{ ue }}">{{ ue }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

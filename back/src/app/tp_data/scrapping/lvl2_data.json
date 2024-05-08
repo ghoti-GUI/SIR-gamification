@@ -1,0 +1,701 @@
+{
+    "years": [
+        {
+            "name": "3A",
+            "ues": [
+                {
+                    "name": "SYS1",
+                    "credits": 5,
+                    "courses": [
+                        {
+                            "name": "Propagation optique et hertzienne",
+                            "credits": 2,
+                            "code": "TC-EC-HOP",
+                            "teacher": "GCO",
+                            "hours": 62,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Signaux et Systèmes",
+                            "credits": 2,
+                            "code": "TC-EC-SIS",
+                            "teacher": "UCM",
+                            "hours": 62,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Probabilités et statistiques",
+                            "credits": 1,
+                            "code": "TC-EC-PBS",
+                            "teacher": "PSE",
+                            "hours": 50,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "RES1",
+                    "credits": 5,
+                    "courses": [
+                        {
+                            "name": "Protocoles TCP/IP",
+                            "credits": 3,
+                            "code": "TC-EC-IP",
+                            "teacher": "AVF",
+                            "hours": 47,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Protocoles de routage",
+                            "credits": 2,
+                            "code": "TC-EC-NRP",
+                            "teacher": "FPR",
+                            "hours": 50,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "INF1",
+                    "credits": 5,
+                    "courses": [
+                        {
+                            "name": "Algorithmique",
+                            "credits": 2,
+                            "code": "TC-EC-ALG",
+                            "teacher": "SIO",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Programmation C",
+                            "credits": 3,
+                            "code": "TC-EC-CRO",
+                            "teacher": "TIR",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "PRO1A",
+                    "credits": 3,
+                    "courses": [
+                        {
+                            "name": "Passeport Informatique Telecoms",
+                            "credits": 1,
+                            "code": "TC-EC-PIT",
+                            "teacher": "TBE",
+                            "hours": 16,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Projet Radio Logicielle",
+                            "credits": 1,
+                            "code": "TC-EC-SDR",
+                            "teacher": "PSE",
+                            "hours": 18,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Projet Métrologie Réseaux",
+                            "credits": 1,
+                            "code": "TC-EC-MET",
+                            "teacher": "SRT",
+                            "hours": 16,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "PRO1B",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "Ecosystème des langages de programmation",
+                            "credits": 2,
+                            "code": "TC-EC-ELP",
+                            "teacher": "FSR",
+                            "hours": 40,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Programmation Parallèle et Concurrente",
+                            "credits": 1,
+                            "code": "TC-EC-PPC",
+                            "teacher": "KRE",
+                            "hours": 40,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Projet Routage Réseaux",
+                            "credits": 2,
+                            "code": "TC-EC-GNS",
+                            "teacher": "OOI",
+                            "hours": 20,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "SYS2",
+                    "credits": 5,
+                    "courses": [
+                        {
+                            "name": "Traitement du Signal",
+                            "credits": 2,
+                            "code": "TC-EC-TSI",
+                            "teacher": "DKI",
+                            "hours": 26,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Mathématiques Appliquées au Signal",
+                            "credits": 2,
+                            "code": "TC-EC-MAS",
+                            "teacher": "AAB",
+                            "hours": 16,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Codages et Modulations Numériques",
+                            "credits": 2,
+                            "code": "TC-EC-DCO",
+                            "teacher": "GCO",
+                            "hours": 62,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "RES2",
+                    "credits": 5,
+                    "courses": [
+                        {
+                            "name": "Architecture et services réseaux",
+                            "credits": 2,
+                            "code": "TC-EC-NAS",
+                            "teacher": "FPR",
+                            "hours": 50,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Mécanismes d'Accès au Canal",
+                            "credits": 2,
+                            "code": "TC-EC-MAC",
+                            "teacher": "VAF",
+                            "hours": 39,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Probabilités et statistiques 2",
+                            "credits": 1,
+                            "code": "TC-EC-PBS2",
+                            "teacher": "PSE",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "INF2",
+                    "credits": 5,
+                    "courses": [
+                        {
+                            "name": "Architecture",
+                            "credits": 2,
+                            "code": "TC-EC-ARC",
+                            "teacher": "TIR",
+                            "hours": 28,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Web dynamique",
+                            "credits": 3,
+                            "code": "TC-EC-WEB",
+                            "teacher": "FSR",
+                            "hours": 37,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "PRO2A",
+                    "credits": 3,
+                    "courses": [
+                        {
+                            "name": "Traitement de Signal pour le Son",
+                            "credits": 2,
+                            "code": "TC-EC-SON",
+                            "teacher": "TIR",
+                            "hours": 68,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Analyse et Synthèse de Documents Scientifiques",
+                            "credits": 1,
+                            "code": "TC-EC-ASDS",
+                            "teacher": "GCO",
+                            "hours": 23,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "PRO2B",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "Projet d'initiation à la recherche",
+                            "credits": 3,
+                            "code": "TC-EC-PTIR",
+                            "teacher": "SIO",
+                            "hours": 22,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Découverte de la recherche",
+                            "credits": 1,
+                            "code": "TC-EC-DRE",
+                            "teacher": "SIO",
+                            "hours": 2,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "4A",
+            "ues": [
+                {
+                    "name": "SYS1",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "Traitement de signaux numériques : Parole et Image",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-TIP",
+                            "teacher": "AAB",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Communications Numériques Avancées",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-CNA",
+                            "teacher": "GJO",
+                            "hours": 48,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "RES1",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "Performances de Réseaux",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-PRF",
+                            "teacher": "AAB",
+                            "hours": 60,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Architecture des Réseaux Mobiles",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-ARM",
+                            "teacher": "ZRA",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "INF1",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "Cryptographie et Sécurité des Communications",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-CSC",
+                            "teacher": "MUC",
+                            "hours": 42,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Systèmes Distribués",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-SYD",
+                            "teacher": "FSR",
+                            "hours": 40,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "GPIR",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "INSPIRE - Montage de projet responsable 1",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-INS1",
+                            "teacher": "MVU",
+                            "hours": 50,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "INSPIRE - Montage de projet responsable 2",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-INS2",
+                            "teacher": "MVU",
+                            "hours": 50,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "PRO",
+                    "credits": 8,
+                    "courses": [
+                        {
+                            "name": "Projet Technique",
+                            "credits": 8,
+                            "code": "TC-4-S1-EC-PRO",
+                            "teacher": "RTO",
+                            "hours": 160,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "SYS2",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "Réseau d'accès radio",
+                            "credits": 2,
+                            "code": "TC-4-S2-EC-RAN",
+                            "teacher": "GJO",
+                            "hours": 38,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Transmission Ofdm et Synchronisation",
+                            "credits": 2,
+                            "code": "TC-4-S2-EC-TOS",
+                            "teacher": "PSE",
+                            "hours": 28,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "RES2",
+                    "credits": 5,
+                    "courses": [
+                        {
+                            "name": "Boucle locale filaire",
+                            "credits": 1,
+                            "code": "TC-4-S2-EC-BLF",
+                            "teacher": "PSE",
+                            "hours": 36,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Couche Transport",
+                            "credits": 2,
+                            "code": "TC-4-S2-EC-TCP",
+                            "teacher": "ZRA",
+                            "hours": 16,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Réseaux Entreprise",
+                            "credits": 2,
+                            "code": "TC-4-S2-EC-RPE",
+                            "teacher": "VAF",
+                            "hours": 26,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "INF2",
+                    "credits": 4,
+                    "courses": [
+                        {
+                            "name": "Virtualisation",
+                            "credits": 2,
+                            "code": "TC-4-S2-EC-VIR",
+                            "teacher": "FSR",
+                            "hours": 2,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Intelligence Artificielle pour les Télécommunications",
+                            "credits": 2,
+                            "code": "TC-4-S1-EC-IAT",
+                            "teacher": "SIO",
+                            "hours": 42,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "GPO",
+                    "credits": 3,
+                    "courses": [
+                        {
+                            "name": "Projet Appel d'Offre Reseaux",
+                            "credits": 3,
+                            "code": "TC-4-S2-EC-PAO",
+                            "teacher": "FML",
+                            "hours": 141,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "STAGE",
+                    "credits": 14,
+                    "courses": [
+                        {
+                            "name": "Stage en entreprise",
+                            "credits": 10,
+                            "code": "TC-4-S2-EC-ENT",
+                            "teacher": "REV",
+                            "hours": 496,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Rapport de stage",
+                            "credits": 4,
+                            "code": "TC-4-S2-EC-RAP",
+                            "teacher": "MCU",
+                            "hours": 20,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "5A",
+            "ues": [
+                {
+                    "name": "OPT",
+                    "credits": 12,
+                    "courses": [
+                        {
+                            "name": "Satellites et localisation",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-SAT",
+                            "teacher": "FJR",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Satellites et localisation projet",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-PRJSAT",
+                            "teacher": "FJR",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Communications Quantiques",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-CQN",
+                            "teacher": "GCO",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Simulation Avancée des Réseaux",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-SAR",
+                            "teacher": "RZA",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Sécurité des Protocoles Réseaux",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-SPR",
+                            "teacher": "BWE",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Cloud IoT",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-CIT",
+                            "teacher": "FML",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Réseaux de Diffusion de Contenus",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-CDN",
+                            "teacher": "RZA",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Analyse de Risque en sécurité de l'information",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-ARC",
+                            "teacher": "DCR",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Sécurité des réseaux et des systèmes",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-SRS",
+                            "teacher": "MSE",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Sécurité et vie privée",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-SVP",
+                            "teacher": "MUC",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Systèmes embarqués pour le traitement du signal audio en temps-réel",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-AUD",
+                            "teacher": "TIR",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Blockchain et Monnaies électronique",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-BTC",
+                            "teacher": "RDE",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Conteneurisation / virtualisation",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-AWS",
+                            "teacher": "CUF",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Projet Robotique - Embarqué",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-PRJREB",
+                            "teacher": "SIO",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Systèmes Multi-Robots",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-SMR",
+                            "teacher": "SIO",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "IA pour la Robotique",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-IAR",
+                            "teacher": "SIO",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Elastic Kibana Beats",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-ELK",
+                            "teacher": "FSR",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Développement Mobile",
+                            "credits": 2,
+                            "code": "TC-5-S1-EC-DMO",
+                            "teacher": "FSR",
+                            "hours": 32,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "PRO1",
+                    "credits": 11,
+                    "courses": [
+                        {
+                            "name": "Projet Innovant (Réunions Pre-MVP)",
+                            "credits": 3,
+                            "code": "TC-5-S1-EC-PILS-PRE",
+                            "teacher": "FSR",
+                            "hours": 360,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Projet Innovant (Réunions MVP)",
+                            "credits": 4,
+                            "code": "TC-5-S1-EC-PILS-MVP",
+                            "teacher": "FSR",
+                            "hours": 20,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Projet Innovant (Pitch-Poster)",
+                            "credits": 4,
+                            "code": "TC-5-S1-EC-PILS-RET",
+                            "teacher": "FSR",
+                            "hours": 20,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                },
+                {
+                    "name": "STAGE",
+                    "credits": 30,
+                    "courses": [
+                        {
+                            "name": "Stage en entreprise",
+                            "credits": 16,
+                            "code": "TC-5-S1-EC-STA-ENT",
+                            "teacher": "REV",
+                            "hours": 706,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Rapport de stage",
+                            "credits": 7,
+                            "code": "TC-5-S1-EC-STA-RAP",
+                            "teacher": "REV",
+                            "hours": 20,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        },
+                        {
+                            "name": "Soutenance de stage",
+                            "credits": 7,
+                            "code": "TC-5-S1-EC-STA-SOU",
+                            "teacher": "REV",
+                            "hours": 20,
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

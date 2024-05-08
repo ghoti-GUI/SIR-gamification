@@ -1,0 +1,10 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 1{% endblock %}
+{% block content %}
+<h1>Lvl1</h1>
+<p>Liste des enseignants de TC</p>
+{% for teacher in teachers %}
+<p>{{teacher.name}}, {{ teacher.initials }} : {{ teacher.username }}</p>
+{% endfor %}
+{% endblock %}

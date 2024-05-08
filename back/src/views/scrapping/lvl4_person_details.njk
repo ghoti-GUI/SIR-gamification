@@ -1,0 +1,14 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 4 - Détails de l'utilisateur{% endblock %}
+{% block content %}
+<h1>Détails de l'utilisateur</h1>
+<h3>Nom : {{ person.name }}</h3>
+<p> Nom d'utilisateur : {{ person.username }}</p>
+<p> Initiales : {{ person.initials }}</p>
+<p> Email : {{ person.mail }}</p>
+<p> Téléphone : {{ person.phone }}</p>
+<p> Date de naissance : {{ person.birthDate }}</p>
+<p> Nom de son chien : {{ person.dog }}</p>
+{% endblock %}
+

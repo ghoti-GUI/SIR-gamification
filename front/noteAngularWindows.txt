@@ -1,0 +1,9 @@
+Si execution de script déactivé:
+    Soit (permet de lancer une fois):
+        powershell -ExecutionPolicy Bypass -File <chemin_vers_fichier_ps1>
+    Soit (résoud le problème définitivement mais problème si on télécharge et lance Powershell malicieux ):
+        Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+        Vérifier avec : Get-ExecutionPolicy
+
+
+    

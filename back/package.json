@@ -1,0 +1,42 @@
+{
+    "name": "back",
+    "version": "0.0.0",
+    "description": "Backend pour le projet Gamification",
+    "main": "src/app/app.js",
+    "scripts": {
+        "start": "node src/app/app.js",
+        "dev": "nodemon -L --watch src/ -e js,json,html,njk src/app/app.js",
+        "test": "echo \"Error: no test specified\" && exit 0",
+        "lint:check": "eslint src/app --cache",
+        "lint:fix": "eslint src/app --fix --cache"
+    },
+    "author": "",
+    "type": "module",
+    "license": "ISC",
+    "dependencies": {
+        "@node-saml/passport-saml": "^4.0.4",
+        "body-parser": "^1.20.2",
+        "cookie-parser": "^1.4.6",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "express-rate-limit": "^7.1.5",
+        "express-session": "^1.17.3",
+        "jsonwebtoken": "^9.0.2",
+        "mongodb": "^6.3.0",
+        "mongoose": "^8.0.2",
+        "nunjucks": "^3.2.4",
+        "passport": "^0.6.0",
+        "passport-local": "^1.0.0",
+        "pino": "^8.17.1",
+        "pino-pretty": "^10.3.0",
+        "seedrandom": "^3.0.5"
+    },
+    "devDependencies": {
+        "eslint": "^8.54.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "nodemon": "^3.0.1",
+        "prettier": "^3.1.1",
+        "prettier-eslint": "^16.1.2"
+    }
+}

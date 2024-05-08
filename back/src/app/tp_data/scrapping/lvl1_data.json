@@ -1,0 +1,308 @@
+[
+    {
+        "name": "Georges Toutain",
+        "username": "gtoutain",
+        "initials": "GTO"
+    },
+    {
+        "name": "Jacques Boutin",
+        "username": "jboutin",
+        "initials": "JBO"
+    },
+    {
+        "name": "Alceste Blanc",
+        "username": "ablanc",
+        "initials": "ABL"
+    },
+    {
+        "name": "Abel Girard",
+        "username": "agirard",
+        "initials": "AGI"
+    },
+    {
+        "name": "Paul Dutertre",
+        "username": "pdutertre",
+        "initials": "PDU"
+    },
+    {
+        "name": "Maximilien Féret",
+        "username": "mferet",
+        "initials": "MFE"
+    },
+    {
+        "name": "Igor Rochefort",
+        "username": "irochefort",
+        "initials": "IRO"
+    },
+    {
+        "name": "Florentin Alarie",
+        "username": "falarie",
+        "initials": "FAL"
+    },
+    {
+        "name": "Bertrand Duret",
+        "username": "bduret",
+        "initials": "BDU"
+    },
+    {
+        "name": "Maximilien Plouffe",
+        "username": "mplouffe",
+        "initials": "MPL"
+    },
+    {
+        "name": "Rolande Raoult",
+        "username": "rraoult",
+        "initials": "RRA"
+    },
+    {
+        "name": "Stéphane Duval",
+        "username": "sduval",
+        "initials": "SDU"
+    },
+    {
+        "name": "Ophélie Berger",
+        "username": "oberger",
+        "initials": "OBE"
+    },
+    {
+        "name": "Roselyne Blanc",
+        "username": "rblanc",
+        "initials": "RBL"
+    },
+    {
+        "name": "Amélie Jacquinot",
+        "username": "ajacquinot",
+        "initials": "AJA"
+    },
+    {
+        "name": "Dorothée Mallet",
+        "username": "dmallet",
+        "initials": "DMA"
+    },
+    {
+        "name": "Blandine Peltier",
+        "username": "bpeltier",
+        "initials": "BPE"
+    },
+    {
+        "name": "Odile Girard",
+        "username": "ogirard",
+        "initials": "OGI"
+    },
+    {
+        "name": "Sarah Baschet",
+        "username": "sbaschet",
+        "initials": "SBA"
+    },
+    {
+        "name": "Julie Delaplace",
+        "username": "jdelaplace",
+        "initials": "JDE"
+    },
+    {
+        "name": "Wilfried Jacquinot",
+        "username": "wjacquinot",
+        "initials": "WJA"
+    },
+    {
+        "name": "Edgar Bassot",
+        "username": "ebassot",
+        "initials": "EBA"
+    },
+    {
+        "name": "Alban Parchant",
+        "username": "aparchant",
+        "initials": "APA"
+    },
+    {
+        "name": "José Goutet",
+        "username": "jgoutet",
+        "initials": "JGO"
+    },
+    {
+        "name": "Henry Dufresne",
+        "username": "hdufresne",
+        "initials": "HDU"
+    },
+    {
+        "name": "Alphonse Allais",
+        "username": "aallais",
+        "initials": "AAL"
+    },
+    {
+        "name": "Élie Poullain",
+        "username": "epoullain",
+        "initials": "EPO"
+    },
+    {
+        "name": "Lucas Duval",
+        "username": "lduval",
+        "initials": "LDU"
+    },
+    {
+        "name": "Germain Ballouhey",
+        "username": "gballouhey",
+        "initials": "GBA"
+    },
+    {
+        "name": "Thibaud Allaire",
+        "username": "tallaire",
+        "initials": "TAL"
+    },
+    {
+        "name": "Adeline Bethune",
+        "username": "abethune",
+        "initials": "ABE"
+    },
+    {
+        "name": "Nancy Chappuis",
+        "username": "nchappuis",
+        "initials": "NCH"
+    },
+    {
+        "name": "Jade Gérin-Lajoie",
+        "username": "jgerin",
+        "initials": "JGE"
+    },
+    {
+        "name": "Noémie Pélissier",
+        "username": "npelissier",
+        "initials": "NPE"
+    },
+    {
+        "name": "Valentine Beaugendre",
+        "username": "vbeaugendre",
+        "initials": "VBE"
+    },
+    {
+        "name": "Miryam Crépin",
+        "username": "mcrepin",
+        "initials": "MCR"
+    },
+    {
+        "name": "Aurore Desjardins",
+        "username": "adesjardins",
+        "initials": "ADE"
+    },
+    {
+        "name": "Cécilia Abadie",
+        "username": "cabadie",
+        "initials": "CAB"
+    },
+    {
+        "name": "Séverine Rousseau",
+        "username": "srousseau",
+        "initials": "SRO"
+    },
+    {
+        "name": "Ghyslaine Grinda",
+        "username": "ggrinda",
+        "initials": "GGR"
+    },
+    {
+        "name": "Céline Crevier",
+        "username": "ccrevier",
+        "initials": "CCR"
+    },
+    {
+        "name": "Flore Féret",
+        "username": "fferet",
+        "initials": "FFE"
+    },
+    {
+        "name": "Rose-Marie Delisle",
+        "username": "rdelisle",
+        "initials": "RDE"
+    },
+    {
+        "name": "Abélia Dubos",
+        "username": "adubos",
+        "initials": "ADU"
+    },
+    {
+        "name": "Pascale Compere",
+        "username": "pcompere",
+        "initials": "PCO"
+    },
+    {
+        "name": "Anne Barrault",
+        "username": "abarrault",
+        "initials": "ABA"
+    },
+    {
+        "name": "Charlotte Bassot",
+        "username": "cbassot",
+        "initials": "CBA"
+    },
+    {
+        "name": "Élise Lefrançois",
+        "username": "elefrancois",
+        "initials": "ELE"
+    },
+    {
+        "name": "Solange Moulin",
+        "username": "smoulin",
+        "initials": "SMO"
+    },
+    {
+        "name": "Arlette Marchal",
+        "username": "amarchal",
+        "initials": "AMA"
+    },
+    {
+        "name": "Dany Beaugendre",
+        "username": "dbeaugendre",
+        "initials": "DBE"
+    },
+    {
+        "name": "Max Auberjonois",
+        "username": "mauberjonois",
+        "initials": "MAU"
+    },
+    {
+        "name": "Gervais Aubert",
+        "username": "gaubert",
+        "initials": "GAU"
+    },
+    {
+        "name": "Marius Deloffre",
+        "username": "mdeloffre",
+        "initials": "MDE"
+    },
+    {
+        "name": "Florent Daboville",
+        "username": "fdaboville",
+        "initials": "FDA"
+    },
+    {
+        "name": "Sébastien Lazard",
+        "username": "slazard",
+        "initials": "SLA"
+    },
+    {
+        "name": "Colin Prudhomme",
+        "username": "cprudhomme",
+        "initials": "CPR"
+    },
+    {
+        "name": "Adrien Hector",
+        "username": "ahector",
+        "initials": "AHE"
+    },
+    {
+        "name": "Simon Regnard",
+        "username": "sregnard",
+        "initials": "SRE"
+    },
+    {
+        "name": "Gauthier Rouzet",
+        "username": "grouzet",
+        "initials": "GRO"
+    },
+    {
+        "name": "Tim Berners-Lee",
+        "username": "tberners",
+        "initials": "TBE"
+    }
+]
+

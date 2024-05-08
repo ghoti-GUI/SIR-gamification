@@ -1,0 +1,13 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 2 - Liste des Cours{% endblock %}
+{% block content %}
+<h1>Liste des Cours</h1>
+<ul>
+    {% for course in courses %}
+    <li>
+        <a href="scrap/{{year | urlencode}}/{{ ue | urlencode }}/{{course}}">{{ course }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

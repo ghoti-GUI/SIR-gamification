@@ -1,0 +1,13 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 3 - Liste des Références{% endblock %}
+{% block content %}
+<h1>Liste des Références</h1>
+<ul>
+    {% for book in books %}
+    <li>
+        <a href="scrap/{{ book.id }}">{{ book.id }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

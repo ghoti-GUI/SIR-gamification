@@ -1,0 +1,313 @@
+[
+    {
+        "title": "Telecommunication transmission systems",
+        "author": "Robert G. Winch",
+        "year": "1993"
+    },
+    {
+        "title": "Data Communications and Networking with TCP/IP Protocol Suite",
+        "author": "Behrouz A. Forouzan",
+        "year": "2021"
+    },
+    {
+        "title": "Starting Digital Signal Processing in Telecommunication Engineering",
+        "author": "Tomasz P. Zieliński",
+        "year": "2020"
+    },
+    {
+        "title": "Optical Fiber Telecommunications V11",
+        "year": "2019"
+    },
+    {
+        "title": "Telecommunication transmission handbook",
+        "author": "Roger L. Freeman",
+        "year": "1991"
+    },
+    {
+        "title": "Introduction to Wireless Communications and Networks",
+        "year": "2022"
+    },
+    {
+        "title": "Internetworking with TCP/IP Vol.1",
+        "year": "2000"
+    },
+    {
+        "title": "Modeling and dimensioning of mobile networks",
+        "author": "Maciej Stasiak",
+        "year": "2011"
+    },
+    {
+        "title": "Metro Ethernet services for LTE backhaul",
+        "author": "Roman Krzanowski",
+        "year": "2013"
+    },
+    {
+        "title": "Telecommunication networks",
+        "author": "Mischa Schwartz",
+        "year": "1987"
+    },
+    {
+        "title": "Business Data Networks and Telecommunications",
+        "year": "2008"
+    },
+    {
+        "title": "Telebomb",
+        "year": "2005"
+    },
+    {
+        "title": "The Illustrated Network: How TCP/IP Works in a Modern Network",
+        "author": "Walter Goralski",
+        "year": "2017"
+    },
+    {
+        "title": "Introduction to Networks Companion Guide v5.1",
+        "year": "2016"
+    },
+    {
+        "title": "TCP/IP Network Administration",
+        "author": "Craig Hunt",
+        "year": "2002"
+    },
+    {
+        "title": "Long Term Evolution IN BULLETS, 2nd Edition (Black & White)",
+        "author": "Chris Johnson",
+        "year": "2012"
+    },
+    {
+        "title": "Broadband telecommunications technologies and management",
+        "author": "Riaz Esmailzadeh",
+        "year": "2016"
+    },
+    {
+        "title": "Broadband Optical Access Networks and Fiber-to-the-Home",
+        "author": "Chinlon Lin",
+        "year": "2006"
+    },
+    {
+        "title": "McGraw-Hill's Encyclopedia of Networking & Telecommunications",
+        "year": "2001"
+    },
+    {
+        "title": "Telecommunications essentials",
+        "year": "2007"
+    },
+    {
+        "title": "Telecommunications system reliability engineering, theory, and practice",
+        "author": "Mark L. Ayers",
+        "year": "2012"
+    },
+    {
+        "title": "Business Management of Telecommunications",
+        "year": "2004"
+    },
+    {
+        "title": "Wireless Crash Course",
+        "author": "Paul Bedell",
+        "year": "2001"
+    },
+    {
+        "title": "Wireless Crash Course",
+        "author": "Paul Bedell",
+        "year": "2012"
+    },
+    {
+        "title": "LTE Services",
+        "year": "2014"
+    },
+    {
+        "title": "Security in Network Functions Virtualization",
+        "year": "2017"
+    },
+    {
+        "title": "Broadband telecommunications handbook",
+        "author": "Regis J. Bates",
+        "year": "2000"
+    },
+    {
+        "title": "Queuing Theory and Telecommunications",
+        "year": "2021"
+    },
+    {
+        "title": "5G Simplified",
+        "author": "Jyrki Penttinen",
+        "year": "2019"
+    },
+    {
+        "title": "IP Telephony",
+        "year": "March 11, 2005"
+    },
+    {
+        "title": "Building the Network of the Future",
+        "author": "John Donovan",
+        "year": "2017"
+    },
+    {
+        "title": "Fundamentals of telecommunications",
+        "author": "Roger L. Freeman",
+        "year": "1999"
+    },
+    {
+        "title": "Telecommunication transmission systems",
+        "author": "Robert G. Winch",
+        "year": "1998"
+    },
+    {
+        "title": "Telecommunications technologies reference",
+        "author": "Bradley Dunsmore",
+        "year": "2003"
+    },
+    {
+        "title": "Telecommunications protocols",
+        "author": "Travis Russell",
+        "year": "2000"
+    },
+    {
+        "title": "Broadband networking",
+        "author": "Mike Sexton",
+        "year": "1997"
+    },
+    {
+        "title": "TCP/IP Tutorial and Technical Overview",
+        "year": "2001"
+    },
+    {
+        "title": "Routing and Quality-of-Service in Broadband LEO Satellite Networks (Broadband Networks and Services)",
+        "year": "2002"
+    },
+    {
+        "title": "Telecommunications and Data Communications Handbook",
+        "author": "Ray Horak",
+        "year": "2008"
+    },
+    {
+        "title": "Chip War",
+        "author": "Miller, Chris",
+        "year": "2023"
+    },
+    {
+        "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
+        "year": "2022"
+    },
+    {
+        "title": "Deep Learning",
+        "year": "2017"
+    },
+    {
+        "title": "Structure and Interpretation of Computer Programs",
+        "author": "Harold Abelson",
+        "year": "2022"
+    },
+    {
+        "title": "Python Crash Course, 3rd Edition",
+        "year": "2022"
+    },
+    {
+        "title": "Guide to Competitive Programming",
+        "year": "2020"
+    },
+    {
+        "title": "AI 2041",
+        "author": "Kai-Fu Lee",
+        "year": "2021"
+    },
+    {
+        "title": "The C Programming Language",
+        "author": "Brian W. Kernighan",
+        "year": "1988"
+    },
+    {
+        "title": "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
+        "year": "2017"
+    },
+    {
+        "title": "Introduction to Algorithms, Fourth Edition",
+        "author": "Thomas H. Cormen",
+        "year": "2022"
+    },
+    {
+        "title": "Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and The Cloud",
+        "year": "2019"
+    },
+    {
+        "title": "Artificial Intelligence",
+        "author": "Stuart J. Russell",
+        "year": "2020"
+    },
+    {
+        "title": "The Mythical Man-Month",
+        "author": "Frederick P. Brooks",
+        "year": "1995"
+    },
+    {
+        "title": "Hello world",
+        "author": "Hannah Fry",
+        "year": "2018"
+    },
+    {
+        "title": "Cracking the Coding Interview: 189 Programming Questions and Solutions",
+        "year": "2015"
+    },
+    {
+        "title": "Art of Computer Programming, Volumes 1-4B, Boxed Set",
+        "author": "Donald Ervin Knuth",
+        "year": "2022"
+    },
+    {
+        "title": "Algorithms",
+        "year": "2019"
+    },
+    {
+        "title": "System Design Interview - an Insider's Guide, Second Edition",
+        "year": "2020"
+    },
+    {
+        "title": "Algorithmic Thinking",
+        "year": "2020"
+    },
+    {
+        "title": "Effective Java",
+        "year": "2017"
+    },
+    {
+        "title": "Coding for Kids - Python",
+        "author": "Susan Randol",
+        "year": "2019"
+    },
+    {
+        "title": "The Self-Taught Computer Scientist",
+        "author": "Cory Althoff",
+        "year": "2021"
+    },
+    {
+        "title": "Game Programming Patterns",
+        "year": "2014"
+    },
+    {
+        "title": "Art of Computer Programming",
+        "author": "Donald Ervin Knuth",
+        "year": "2019"
+    },
+    {
+        "title": "Grokking Algorithms: An illustrated guide for programmers and other curious people",
+        "year": "2016"
+    },
+    {
+        "title": "The computer book",
+        "author": "Simson Garfinkel",
+        "year": "2018"
+    },
+    {
+        "title": "Algorithms Illuminated : Part 1",
+        "author": "Tim Roughgarden",
+        "year": "2017"
+    },
+    {
+        "title": "Algorithms Illuminated",
+        "author": "Tim Roughgarden",
+        "year": "2018"
+    },
+    {
+        "title": "Deep Learning with Python",
+        "year": "2017"
+    }
+]

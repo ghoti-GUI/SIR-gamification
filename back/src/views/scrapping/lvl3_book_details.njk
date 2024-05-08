@@ -1,0 +1,12 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 3 - Détails du livre{% endblock %}
+{% block content %}
+<h1>Détails du livre</h1>
+<h3>Titre : {{ book.title }}</h3>
+{%- if book.author %}
+    <p>Auteur : {{ book.author }}</p>
+{%- endif %}
+<p>ISBN : {{ book.isbn }}</p>
+<p>Année de parution : {{ book.year }}</p>
+{% endblock %}

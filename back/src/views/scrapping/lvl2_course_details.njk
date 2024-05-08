@@ -1,0 +1,12 @@
+{% extends "scrapping/base.njk" %}
+
+{% block title %}TP Scrapping - LVL 2 - Détails du cours{% endblock %}
+{% block content %}
+<h1>Détails du cours</h1>
+<h3>Nom : {{ course.name }}</h3>
+<p>Description : {{ course.description }}</p>
+<p>Encadrant : {{ course.teacher }}</p>
+<p>Nombre d'heures : {{ course.hours }}</p>
+<p>Nombre de crédits : {{ course.credits }}</p>
+<p>Code : {{ course.code }}</p>
+{% endblock %}

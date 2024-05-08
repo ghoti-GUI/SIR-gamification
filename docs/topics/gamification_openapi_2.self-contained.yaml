@@ -1,0 +1,2120 @@
+---
+openapi: "3.0.3"
+info:
+  title: "gamification API"
+  description: "gamification API"
+  version: "1.0.0"
+servers:
+  - url: "https://api.tc-syd-02.insa-lyon.fr"
+    description: "Production server"
+paths:
+  /api/session/available:
+    get:
+      summary: "Get all available sessions"
+      description: "Get all available sessions - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: "#/components/schemas/StudentSession"
+                  - type: array
+                    items:
+                      $ref: "#/components/schemas/TeacherSession"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+
+  /api/session/all:
+    get:
+      summary: "Get all sessions for user"
+      description: "Get all sessions for user. Results type differ if user is student or teacher/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: array
+                    description: "Returns sessions with student-specific information that are either in progress or done"
+                    items:
+                      $ref: "#/components/schemas/StudentSession"
+                  - type: array
+                    description: "Returns sessions with teacher-specific information that are either scheduled, in progress or done"
+                    items:
+                      $ref: "#/components/schemas/TeacherSession"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/session/new:
+    post:
+      summary: "Creates a new session"
+      description: "Creates a new session. Only available to teachers/admins. Returns a TeacherSession after creation - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Session 1"
+                password:
+                  type: string
+                  example: "Password123"
+                startDate:
+                  type: string
+                  format: date-time
+                  example: "2024-01-01T00:00:00.000Z"
+                endDate:
+                  type: string
+                  format: date-time
+                  example: "2024-01-01T02:00:00.000Z"
+                TP:
+                  type: string
+                  enum:
+                    - "scrapping"
+                    - "kafka"
+                  example: "scrapping"
+                indexGrades:
+                  type: object
+                  example: { "0": 5, "1": 10, "2": 20 }
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TeacherSession"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Validation error"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/session/fetchTPs:
+    get:
+      summary: "Get all TPs strings"
+      description: "Get all TPs strings. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+  /api/session/{id}:
+    get:
+      summary: "Get session by id"
+      description: "Get session by id. Returns a StudentSession if user is student, TeacherSession if user is teacher/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "id"
+          in: "path"
+          example: "65a7abe1ef63234c1129d7f9"
+          required: true
+          schema:
+            type: string
+          description: The session id
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/StudentSession"
+                  - $ref: "#/components/schemas/TeacherSession"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+    delete:
+      summary: "Delete session by id"
+      description: "Delete session by id. Only available to teachers/admin. Cannot delete sessions that have already started - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "id"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session deleted"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session already started"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/session/{id}/end:
+    post:
+      summary: "End session by id"
+      description: "End session by id. Only available to teachers/admin. Cannot end sessions that have already ended - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "id"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TeacherSession"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session already ended"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/session/{id}/join:
+    post:
+      summary: "Join session by id"
+      description: "Join session by id. Only available to students. Cannot join sessions that have not started or that have ended - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "id"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  session:
+                    $ref: "#/components/schemas/StudentSession"
+                  token:
+                    type: string
+                  progression:
+                    $ref: "#/components/schemas/Progression"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session has not started yet"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+
+  /api/session/{id}/edit:
+    post:
+      summary: "POST api/session/{id}/edit"
+      description: "Edit session by id. Only available to teachers/admin. For already started sessions, only the password and the endDate can be edited - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "id"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Session 1"
+                password:
+                  type: string
+                  example: "Password123"
+                startDate:
+                  type: string
+                  format: date-time
+                  example: "2024-01-01T00:00:00.000Z"
+                endDate:
+                  type: string
+                  format: date-time
+                  example: "2024-01-01T02:00:00.000Z"
+                TP:
+                  type: string
+                  enum:
+                    - "scrapping"
+                    - "kafka"
+                  example: "scrapping"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TeacherSession"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api:
+    get:
+      summary: "GET api"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  api:
+                    type: string
+                    example: "v1"
+                  version:
+                    type: string
+                    example: "1.0.0"
+  /api/login:
+    post:
+      summary: "Login"
+      description: ""
+      security: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: "username"
+                password:
+                  type: string
+                  example: "password"
+      responses:
+        "200":
+          description: >
+            Successfully authenticated.
+            The session ID is returned in a cookie named `connect.sid`. You need to include this cookie in subsequent requests.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: connect.sid=s%3AVwb4Nr25tPu4LgLMkaH123_Zsm6BcE0t.cHjERY5R7l2obZeQgDuBYTOj4MZwEa59VM0k3cx%2Frog; Path=/; HttpOnly; SameSite=Lax
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Successfully authenticated"
+                  user:
+                    $ref: "#/components/schemas/User"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Invalid username or password"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/logout:
+    post:
+      summary: "Logout"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "Ok"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/register:
+    post:
+      summary: "Register a new user"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: "username"
+                password:
+                  type: string
+                  example: "password"
+                name:
+                  type: string
+                  example: "name"
+                surname:
+                  type: string
+                  example: "surname"
+                email:
+                  type: string
+                  example: "email"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Missing required fields"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/user/me:
+    get:
+      summary: "Get current user"
+      description: "Get the current user details - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/user/{id}:
+    get:
+      summary: "Get public user by id"
+      description: "Get public user by id. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "id"
+          in: "path"
+          schema:
+            type: string
+          description: The user id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUser"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/admin/teachers:
+    get:
+      summary: "Get all teachers"
+      description: "Get all teachers. Returns a list of TeacherUser. Only available to admins - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TeacherUser"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/admin/teachers/{id}:
+    delete:
+      summary: "Remove teacher status from user"
+      description: "Remove teacher status from user. Only available to admins - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "id"
+          in: "path"
+          schema:
+            type: string
+          description: The user id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Teacher deleted succesfully"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/admin/setTps/{id}:
+    post:
+      summary: "Set teacher's tps"
+      description: "Set teacher's tps. Only available to admins - Requires authentication"
+      parameters:
+        - name: "id"
+          in: "path"
+          schema:
+            type: string
+          description: The user id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tps:
+                  type: array
+                  items:
+                    type: string
+                  example: [ "scrapping", "kafka" ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "TPs set successfully"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "TPs not provided"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/admin/users:
+    post:
+      summary: "Get users for autocomplete"
+      description: "Get users for autocomplete from searchString. Only available to admins - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TeacherUser"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/admin/addTeacher:
+    post:
+      summary: "Add teacher status to user"
+      description: "Add teacher status to user. Only available to admins - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  smessage:
+                    type: string
+                    example: "Teacher added succesfully"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User not found"
+        "409":
+          description: "Conflict"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User is already a teacher"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/my:
+    get:
+      summary: "Get current user's grades"
+      description: "Get current user's grades. Returns a list of grades. Only available to students - Requires authentication"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sessionName:
+                      type: string
+                      example: "Session 1"
+                    tp:
+                      type: string
+                      example: "scrapping"
+                    grade:
+                      type: number
+                      example: 10
+                    bonus:
+                      type: number
+                      example: 0
+                    level:
+                      type: integer
+                      example: 1
+                    mean:
+                      type: number
+                      example: 10
+                    std:
+                      type: number
+                      example: 0
+                    coefficient:
+                      type: number
+                      example: 1
+                    sessionId:
+                      type: string
+                      example: "65a7abe1ef63234c1129d7f9"
+                    progressionId:
+                      type: string
+                      example: "65a7abe1ef63234c1129d7f9"
+
+  /api/grade/all/{sessionId}:
+    get:
+      summary: "Get all grades for a session"
+      description: "Get all grades for a session. Returns a list of grades. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "sessionId"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    progressionId:
+                      type: string
+                      example: "65a7abe1ef63234c1129d7f9"
+                    studentName:
+                      type: string
+                      example: "Student A"
+                    grade:
+                      type: number
+                      example: 10
+                    bonus:
+                      type: number
+                      example: 0
+                    level:
+                      type: integer
+                      example: 1
+                    gradeOverride:
+                      type: boolean
+                      example: false
+                    gradeComment:
+                      type: string
+                      example: "Comment"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/resetGrade/{progressionId}:
+    post:
+      summary: "Remove grade override for student"
+      description: "Remove grade override for student. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "progressionId"
+          in: "path"
+          schema:
+            type: string
+          description: The progression id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Grade reset"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Progression not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/setGrade/{progressionId}:
+    post:
+      summary: "Set grade override for student"
+      description: "Set grade override for student. Only available to teachers/admin - Requires authentication"
+      parameters:
+        - name: "progressionId"
+          in: "path"
+          schema:
+            type: string
+          description: The progression id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                grade:
+                  type: number
+                  example: 10
+                comment:
+                  type: string
+                  example: "Comment"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Grade overriden"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Grade is missing"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Progression not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/setLevelGrade/{sessionId}:
+    post:
+      summary: "Set level index grade for session"
+      description: "Set level index grade for session. Returns the list of non-modified grades. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "sessionId"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: integer
+                  example: 1
+                grade:
+                  type: number
+                  example: 10
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    progressionId:
+                      type: string
+                      example: "65a7abe1ef63234c1129d7f9"
+                    studentName:
+                      type: string
+                      example: "Student A"
+                    grade:
+                      type: number
+                      example: 10
+                    level:
+                      type: integer
+                      example: 1
+                    gradeOverriden:
+                      type: boolean
+                      example: false
+                    gradeComment:
+                      type: string
+                      example: "Comment"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Level or grade is missing"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/removeLevelGrade/{sessionId}:
+    post:
+      summary: "Reset level index grade for session"
+      description: "Reset level index grade for session. Returns the list of non-modified grades. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "sessionId"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    progressionId:
+                      type: string
+                      example: "65a7abe1ef63234c1129d7f9"
+                    studentName:
+                      type: string
+                      example: "Student A"
+                    grade:
+                      type: number
+                      example: 10
+                    level:
+                      type: integer
+                      example: 1
+                    gradeOverriden:
+                      type: boolean
+                      example: false
+                    gradeComment:
+                      type: string
+                      example: "Comment"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/editStudentLevel/{progressionId}:
+    post:
+      summary: "Edit student level"
+      description: "Edit the student's level. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "progressionId"
+          in: "path"
+          schema:
+            type: string
+          description: The progression id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: integer
+                  example: 1
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Level edited"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Level is missing"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Progression not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+
+  /api/grade/students/{sessionid}:
+    get:
+      summary: "Get students for autocomplete"
+      description: "Get students for autocomplete from searchString. Only available to teachers/admin - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "sessionid"
+          in: "path"
+          schema:
+            type: string
+          description: The session id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                searchString:
+                  type: string
+                  example: "searchString"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TeacherUser"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Session not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/getBonus/{progressionId}:
+    get:
+      summary: "Get student's helpers"
+      description: "Get student's voted helpers. - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "progressionId"
+          in: "path"
+          schema:
+            type: string
+          description: The progression id
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PublicUser"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Progression not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+  /api/grade/setBonus/{progressionId}:
+    post:
+      summary: "Set student's helpers"
+      description: "Set student's helpers. - Requires authentication"
+      security:
+        - cookieAuth: [ ]
+      parameters:
+        - name: "progressionId"
+          in: "path"
+          schema:
+            type: string
+          description: The progression id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              maxLength: 2
+              items:
+                $ref: "#/components/schemas/PublicUser"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Bonus set"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Bonus is missing"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"
+                  redirect_url:
+                    type: string
+                    example: "FRONTEND_URL/login"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "You are not allowed to access this resource"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Progression not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Internal Server Error"
+components:
+  schemas:
+    StudentSession:
+      description: "A session with student-specific information"
+      type: "object"
+      properties:
+        id:
+          description: "The id of the session"
+          type: "string"
+        name:
+          description: "The name of the session"
+          type: "string"
+        teachers:
+          description: "A list of the teachers' user ids for this session"
+          type: "array"
+          items:
+            type: "string"
+        startDate:
+          description: "The start date of the session"
+          type: "string"
+          format: "date-time"
+        endDate:
+          description: "The end date of the session"
+          type: "string"
+          format: "date-time"
+        TP:
+          description: "The type of the TP for this session"
+          type: "string"
+        indexGrades:
+          description: "A map of level to grade (string to integer)"
+          type: "object"
+        status:
+          description: "The status of the session"
+          enum:
+            - "inProgress"
+            - "done"
+          type: "string"
+        joined:
+          description: "Whether the current user has joined the session"
+          type: "boolean"
+    TeacherSession:
+      description: "A session with teacher-specific information"
+      type: "object"
+      properties:
+        id:
+          description: "The id of the session"
+          type: "string"
+        name:
+          description: "The name of the session"
+          type: "string"
+        teachers:
+          description: "A list of the teachers' user ids for this session"
+          type: "array"
+          items:
+            type: "string"
+        students:
+          description: "A list of the students' user ids for this session"
+          type: "array"
+          items:
+            type: "string"
+        startDate:
+          description: "The start date of the session"
+          type: "string"
+          format: "date-time"
+        endDate:
+          description: "The end date of the session"
+          type: "string"
+          format: "date-time"
+        TP:
+          description: "The type of the TP for this session"
+          type: "string"
+        indexGrades:
+          description: "A map of level to grade (string to integer)"
+          type: "object"
+        status:
+          description: "The status of the session"
+          enum:
+            - "scheduled"
+            - "inProgress"
+            - "done"
+          type: "string"
+    Progression:
+      description: "A progression"
+      type: "object"
+      properties:
+        userId:
+          description: "The student's user id"
+          type: "string"
+        sessionId:
+          description: "The session's id"
+          type: "string"
+        level:
+          description: "The level of the student in the TP"
+          type: "integer"
+    PublicUser:
+      description: "A public user"
+      type: "object"
+      properties:
+        id:
+          description: "The user's id"
+          type: "string"
+        name:
+          description: "The user's name"
+          type: "string"
+        surname:
+          description: "The user's surname"
+          type: "string"
+        type:
+          description: "The user's type"
+          type: "string"
+          enum:
+            - "student"
+            - "teacher"
+            - "admin"
+    TeacherUser:
+      description: "A teacher user"
+      type: "object"
+      properties:
+        id:
+          description: "The user's id"
+          type: "string"
+        name:
+          description: "The user's name"
+          type: "string"
+        surname:
+          description: "The user's surname"
+          type: "string"
+        type:
+          description: "The user's type"
+          type: "string"
+          enum:
+            - "student"
+            - "teacher"
+            - "admin"
+        tps:
+          description: "The user's available tps"
+          type: "array"
+          items:
+            type: "string"
+    User:
+      description: "A user"
+      type: "object"
+      properties:
+        id:
+          description: "The user's id"
+          type: "string"
+        username:
+          description: "The user's username"
+          type: "string"
+        name:
+          description: "The user's name"
+          type: "string"
+        surname:
+          description: "The user's surname"
+          type: "string"
+        email:
+          description: "The user's email"
+          type: "string"
+        type:
+          description: "The user's type"
+          type: "string"
+          enum:
+            - "student"
+            - "teacher"
+            - "admin"
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: connect.sid
+
